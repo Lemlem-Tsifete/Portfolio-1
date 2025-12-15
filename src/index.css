@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Manrope:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 100% 6%;
+    --foreground: 0 0% 100%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 20% 40%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 190 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 190 100% 50%;
+    --input: 215 20% 20%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#0a192f] text-foreground;
+    font-family: 'Manrope', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .font-body {
+    font-family: 'Manrope', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .glow-border {
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.1);
+  }
+  
+  .glow-border-animated {
+    animation: pulse-glow 2s infinite;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
+    }
+  }
+}

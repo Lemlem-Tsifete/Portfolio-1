@@ -132,15 +132,15 @@ export default function Home() {
             </nav>
           </div>
 
-  {/* Mobile Bottom Navigation (Text Only) */}
-<div className="lg:hidden fixed bottom-4 left-0 right-0 z-50 px-4">
-  <div className="mx-auto max-w-md bg-[#0f1c2e]/80 backdrop-blur-xl border border-[#00d9ff]/20 rounded-2xl shadow-lg">
-    <div className="flex items-center gap-2 px-3 py-2 overflow-x-auto scrollbar-hide">
+  {/* Mobile Bottom Navigation (Fixed, Full Width, No Scroll) */}
+<div className="lg:hidden fixed bottom-0 left-0 right-0 z-50">
+  <div className="bg-[#0f1c2e]/90 backdrop-blur-xl border-t border-[#00d9ff]/20">
+    <div className="flex items-center justify-between px-2 py-2">
       {sections.map((section) => (
         <button
           key={section}
           onClick={() => setActiveSection(section)}
-          className={`px-4 py-2 rounded-xl whitespace-nowrap text-sm font-medium transition-all duration-200 ${
+          className={`flex-1 text-center py-3 text-xs font-medium transition-all duration-200 rounded-lg mx-1 ${
             activeSection === section
               ? "bg-[#00d9ff]/15 text-[#00d9ff]"
               : "text-[#94a3b8] hover:text-white"

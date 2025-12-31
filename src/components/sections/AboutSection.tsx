@@ -150,6 +150,8 @@ export default function AboutSection() {
     <div className="space-y-10">
       {/* Bio */}
       <div className="space-y-7">
+         <h2 className="text-3xl font-display font-bold text-white">
+         </h2>
         <p className="text-[#cbd5e1] leading-relaxed">
           I'm Lemlem Tsifete, an Electrical and Computer Engineering graduate
           with a passion for combining creativity and technology. I have 2+

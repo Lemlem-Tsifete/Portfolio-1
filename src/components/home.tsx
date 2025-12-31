@@ -1,12 +1,12 @@
 import { useState } from "react";
-import {
+/**import {
   Home as HomeIcon,
   FileText,
   Briefcase,
   Award,
   Mail,
   Video,
-} from "lucide-react";
+} from "lucide-react";**/
 
 import Sidebar from "./Sidebar";
 import MobileProfileHeader from "./MobileProfileHeader";
@@ -25,14 +25,14 @@ type Section =
   | "Contact";
 
 /** Icon map (FIXED & COMPLETE) */
-const sectionIcons: Record<Section, React.ElementType> = {
+/**const sectionIcons: Record<Section, React.ElementType> = {
   About: HomeIcon,
   "Elevator pitch": Video,
   Resume: FileText,
   Portfolio: Briefcase,
   Certificates: Award,
   Contact: Mail,
-};
+};**/
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<Section>("About");
@@ -132,28 +132,27 @@ export default function Home() {
             </nav>
           </div>
 
-          {/* Mobile Navigation */}
-          <div className="lg:hidden bg-[#112240] border-t border-[#00d9ff]/10">
-            <div className="grid grid-cols-5 gap-1 p-2">
-              {sections.map((section) => {
-                const Icon = sectionIcons[section];
-                return (
-                  <button
-                    key={section}
-                    onClick={() => setActiveSection(section)}
-                    className={`flex flex-col items-center gap-1 py-3 px-2 rounded-lg ${
-                      activeSection === section
-                        ? "bg-[#00d9ff]/10 text-[#00d9ff]"
-                        : "text-[#64748b]"
-                    }`}
-                  >
-                    <Icon className="w-5 h-5" />
-                    <span className="text-[10px] font-medium">{section}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+  {/* Mobile Bottom Navigation (Text Only) */}
+<div className="lg:hidden fixed bottom-4 left-0 right-0 z-50 px-4">
+  <div className="mx-auto max-w-md bg-[#0f1c2e]/80 backdrop-blur-xl border border-[#00d9ff]/20 rounded-2xl shadow-lg">
+    <div className="flex items-center gap-2 px-3 py-2 overflow-x-auto scrollbar-hide">
+      {sections.map((section) => (
+        <button
+          key={section}
+          onClick={() => setActiveSection(section)}
+          className={`px-4 py-2 rounded-xl whitespace-nowrap text-sm font-medium transition-all duration-200 ${
+            activeSection === section
+              ? "bg-[#00d9ff]/15 text-[#00d9ff]"
+              : "text-[#94a3b8] hover:text-white"
+          }`}
+        >
+          {section}
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
 
           {/* Content */}
           <div className="p-6 md:p-10 bg-[#1a2332] animate-in fade-in duration-300">

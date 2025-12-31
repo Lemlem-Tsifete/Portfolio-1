@@ -3,7 +3,7 @@ import { Github, ExternalLink } from "lucide-react";
 export default function PortfolioSection() {
   return (
     <div className="space-y-8">
-      <h2 className="text-3xl font-display font-bold text-white">Portfolio</h2>
+      <h2 className="text-3xl font-display font-bold text-white"></h2>
 
       <div className="bg-[#1a2332] rounded-2xl p-12 border border-[#00d9ff]/10 text-center">
         <p className="text-[#cbd5e1] mb-8 text-lg">

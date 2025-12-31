@@ -1,4 +1,13 @@
 import { useState } from "react";
+import {
+  Home as HomeIcon,
+  FileText,
+  Briefcase,
+  Award,
+  Mail,
+  Video,
+} from "lucide-react";
+
 import Sidebar from "./Sidebar";
 import MobileProfileHeader from "./MobileProfileHeader";
 import AboutSection from "./sections/AboutSection";
@@ -14,6 +23,16 @@ type Section =
   | "Portfolio"
   | "Certificates"
   | "Contact";
+
+/** Icon map (FIXED & COMPLETE) */
+const sectionIcons: Record<Section, React.ElementType> = {
+  About: HomeIcon,
+  "Elevator pitch": Video,
+  Resume: FileText,
+  Portfolio: Briefcase,
+  Certificates: Award,
+  Contact: Mail,
+};
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<Section>("About");
@@ -31,36 +50,38 @@ export default function Home() {
     switch (activeSection) {
       case "About":
         return <AboutSection />;
+
       case "Elevator pitch":
         return (
           <div className="space-y-8">
             <h2 className="text-3xl font-display font-bold text-white">
-              Elevator pitch
+              
             </h2>
             <div className="bg-[#112240] rounded-2xl overflow-hidden border border-[#00d9ff]/10">
               <div className="aspect-video">
                 <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/watch?v=vksBO0AI0qM"
-                  title="Elevator Speech"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
                   className="w-full h-full"
+                  src="https://www.youtube.com/embed/vksBO0AI0qM"
+                  title="Elevator Speech"
+                  allowFullScreen
                 />
               </div>
             </div>
           </div>
         );
+
       case "Resume":
         return <ResumeSection />;
+
       case "Portfolio":
         return <PortfolioSection />;
+
       case "Certificates":
         return <CertificatesSection />;
+
       case "Contact":
         return <ContactSection />;
+
       default:
         return <AboutSection />;
     }
@@ -68,7 +89,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a192f] via-[#112240] to-[#0a192f] p-4 md:p-8">
-      {/* Mobile Profile Header - Full Width Stacked Layout */}
+      {/* Mobile Profile Header */}
       <div className="lg:hidden mb-4">
         <MobileProfileHeader />
       </div>
@@ -80,28 +101,26 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 rounded-tl-3xl lg:rounded-tl-3xl rounded-2xl lg:rounded-none border border-[#00d9ff]/10 overflow-hidden">
-          {/* Navigation Area */}
+        <main className="flex-1 rounded-2xl border border-[#00d9ff]/10 overflow-hidden">
+          {/* Header */}
           <div className="flex">
-            {/* Content Header - Left Side */}
-            <div className="bg-[#1a2332] flex-1 px-6 lg:px-10 pt-6 lg:pt-8 pb-4 lg:pb-6">
-              {/* Section Title with Accent Line */}
-              <h2 className="text-2xl lg:text-3xl font-display font-bold text-[#e2e8f0]">
+            <div className="bg-[#1a2332] flex-1 px-6 lg:px-10 pt-6 pb-4">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#e2e8f0]">
                 {activeSection}
               </h2>
               <div className="w-12 h-1 bg-[#00d9ff] mt-3 rounded-full" />
             </div>
 
-            {/* Navigation Bar - Right Side with rounded bottom-left (Desktop) */}
-            <nav className="bg-[#112240] rounded-bl-3xl px-8 pt-8 pb-0 hidden lg:flex gap-6">
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex bg-[#112240] rounded-bl-3xl px-8 pt-8 gap-6">
               {sections.map((section) => (
                 <button
                   key={section}
                   onClick={() => setActiveSection(section)}
-                  className={`pb-4 text-base font-medium transition-all duration-200 relative whitespace-nowrap ${
+                  className={`pb-4 relative ${
                     activeSection === section
                       ? "text-[#00d9ff]"
-                      : "text-[#64748b]/60 hover:text-[#cbd5e1]"
+                      : "text-[#64748b] hover:text-[#cbd5e1]"
                   }`}
                 >
                   {section}
@@ -113,38 +132,41 @@ export default function Home() {
             </nav>
           </div>
 
-          {/* Mobile Navigation - Horizontal Scrollable Tab Bar */}
-          <div className="lg:hidden bg-[#112240] border-t border-[#00d9ff]/10 px-4 py-3">
-            <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
-              {sections.map((section) => (
-                <button
-                  key={section}
-                  onClick={() => setActiveSection(section)}
-                  className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full whitespace-nowrap ${
-                    activeSection === section
-                      ? "bg-[#00d9ff] text-[#0a192f]"
-                      : "bg-[#1a2332] text-[#64748b] hover:text-[#cbd5e1] border border-[#00d9ff]/10"
-                  }`}
-                >
-                  {section}
-                </button>
-              ))}
+          {/* Mobile Navigation */}
+          <div className="lg:hidden bg-[#112240] border-t border-[#00d9ff]/10">
+            <div className="grid grid-cols-5 gap-1 p-2">
+              {sections.map((section) => {
+                const Icon = sectionIcons[section];
+                return (
+                  <button
+                    key={section}
+                    onClick={() => setActiveSection(section)}
+                    className={`flex flex-col items-center gap-1 py-3 px-2 rounded-lg ${
+                      activeSection === section
+                        ? "bg-[#00d9ff]/10 text-[#00d9ff]"
+                        : "text-[#64748b]"
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span className="text-[10px] font-medium">{section}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* Content Area */}
+          {/* Content */}
           <div className="p-6 md:p-10 bg-[#1a2332] animate-in fade-in duration-300">
             {renderSection()}
 
-            {/* Footer */}
             <footer className="mt-16 pt-8 border-t border-[#00d9ff]/10 text-center">
               <p className="text-sm text-[#64748b]">
-                UI Designed by{" "}
+                UI Designed by {" "}
                 <a
                   href="https://github.com/Henok-Belachew"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#00d9ff] hover:text-[#0ea5e9] transition-colors"
+                  className="text-[#00d9ff] hover:text-[#0ea5e9]"
                 >
                   Henok Belachew
                 </a>

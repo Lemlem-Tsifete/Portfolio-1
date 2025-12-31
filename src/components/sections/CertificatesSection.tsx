@@ -9,13 +9,21 @@ const certificates = [
     verifyUrl:
       "https://savanna.alxafrica.com/certificates/RMFSTmH653?utm_campaign=205164743-ALX%20-%202025%20-%20TR%20-%20FLA%204W%20C0&utm_medium=email&_hsenc=p2ANqtz--xdoxVwjuCxE6AskKe5VgZ8ijTdhzlCuiSgHF7xBthYbziz53t3PzkEXopvlZbu2Oz-67SHpvvBjB-fMopY4TGg-ntgA&_hsmi=122758207&utm_content=122758207&utm_source=hs_email",
   },
+  {
+    title: "ALX Professional Foundations program",
+    issuer: "ALX Professional Foundations program",
+    issued: "Dec 2025",
+    image: "https://i.imgur.com/3d3poVk.png",
+    verifyUrl:
+      "https://savanna.alxafrica.com/certificates/RMFSTmH653?utm_campaign=205164743-ALX%20-%202025%20-%20TR%20-%20FLA%204W%20C0&utm_medium=email&_hsenc=p2ANqtz--xdoxVwjuCxE6AskKe5VgZ8ijTdhzlCuiSgHF7xBthYbziz53t3PzkEXopvlZbu2Oz-67SHpvvBjB-fMopY4TGg-ntgA&_hsmi=122758207&utm_content=122758207&utm_source=hs_email",
+  },
 ];
 
 export default function CertificatesSection() {
   return (
     <div className="space-y-8">
       <h2 className="text-3xl font-display font-bold text-white">
-        Certificates
+        
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

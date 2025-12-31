@@ -65,7 +65,7 @@ export default function ContactSection() {
 
   return (
     <div className="space-y-8">
-      <h2 className="text-3xl font-display font-bold text-white">Contact</h2>
+      
 
       {/* Google Maps */}
       <div className="bg-[#1a2332] rounded-2xl overflow-hidden border border-[#00d9ff]/10 h-[300px]">

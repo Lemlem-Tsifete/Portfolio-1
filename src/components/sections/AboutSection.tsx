@@ -45,6 +45,10 @@ const skills = {
       name: "Adobe Illustrator",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg",
     },
+    {
+      name: "Photoshop",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+    },
 
     // Web Development
     {
@@ -83,6 +87,10 @@ const skills = {
     {
       name: "Adobe Illustrator",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg",
+    },
+    {
+      name: "Photoshop",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
     },
   ],
 
@@ -141,21 +149,27 @@ export default function AboutSection() {
   return (
     <div className="space-y-10">
       {/* Bio */}
-      <div className="space-y-4">
+      <div className="space-y-7">
         <p className="text-[#cbd5e1] leading-relaxed">
           I'm Lemlem Tsifete, an Electrical and Computer Engineering graduate
           with a passion for combining creativity and technology. I have 2+
           years of experience in UI/UX and graphic design, creating clean and
-          user-centered digital interfaces.
+          user centered digital interfaces.
         </p>
         <p className="text-[#cbd5e1] leading-relaxed">
-          I also work on electrical system design, including accurate electrical
-          layouts using AutoCAD and BOQ preparation. I have basic knowledge of
-          Python, JavaScript, React, Flutter, and Node.js.
+          I am also an electrical engineer who specializes in creating detailed electrical layouts using AutoCAD. 
+          My work involves making sure every design is accurate and preparing BOQs (Bills of Quantities) to keep projects organized and cost effective. 
+          I focus on the technical details to ensure that every system I design is safe, efficient, and ready for construction.
         </p>
         <p className="text-[#cbd5e1] leading-relaxed">
-          Currently, I am learning cybersecurity through ALX. I am adaptable,
-          motivated, and focused on building practical and impactful solutions.
+          Beyond my electrical work, I apply that same engineering mindset to building digital products.
+          I develop websites and mobile apps using JavaScript, React, and Flutter, while managing the backend logic with Python and Node.js. 
+          Because I am trained as an engineer, I build my code to be structured and reliable. 
+          I really enjoy the challenge of taking a professional UI and writing the code to turn it into a fully functional product.
+        </p>
+        <p className="text-[#cbd5e1] leading-relaxed">
+          Currently, I am also expanding my skills in Cybersecurity through ALX to ensure the systems I build are protected. 
+          I am a highly motivated and adaptable person, and I enjoy the challenge of taking a design and turning it into a practical, high quality product.
         </p>
       </div>
 

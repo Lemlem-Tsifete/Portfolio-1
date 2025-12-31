@@ -72,7 +72,7 @@ export default function Sidebar() {
         <div className="bg-[#112240] rounded-xl p-4 border border-[#00d9ff]/10">
           <div
             className="flex items-start gap-3 group cursor-pointer"
-            onClick={() => handleCopy("(+251) 968786690", "phone")}
+            onClick={() => handleCopy("(+251)901215319", "phone")}
           >
             <div className="bg-[#00d9ff]/10 p-2 rounded-lg group-hover:bg-[#00d9ff]/20 transition-colors">
               <Phone className="w-4 h-4 text-[#00d9ff]" />
